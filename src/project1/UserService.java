@@ -12,6 +12,7 @@ public class UserService {
    UserDao userDao = new UserDao();
 //   long start = System.currentTimeMillis();
    UserDaoCsv userDaoCsv = new UserDaoCsv();
+   ToText oo = new ToText();
    @GET 
    @Path("/users") 
    @Produces(MediaType.APPLICATION_JSON)
@@ -23,7 +24,9 @@ public class UserService {
 //	   List<Employee> al = uu.getAllUsers();
 //	   long end = System.currentTimeMillis();
 //	   System.out.println("Time taken :- " + (end - start));
-      return userDao.getAllUsers();
+//	   return userDaoCsv.getAllUsers();
+//      return userDao.getAllUsers();
+	   return oo.getAllUsers();
 //	   return al;
 //	   return userDaoCsv.getAllUsers();
    }  

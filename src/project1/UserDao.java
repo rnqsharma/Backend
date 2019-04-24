@@ -14,13 +14,13 @@ import java.io.*;
 import java.nio.charset.Charset;
 
 public class UserDao { 
-	static String str = "" ;
+//	static String str = "" ;
    public List<Employee> getAllUsers(){ 
       
       List<Employee> userList = null; 
       try { 
     	  
-    	  File inputFile = new File("C:/Users/768980/Desktop/JavaBack/dataXml.xml");
+//    	  File inputFile = new File("C:/Users/768980/Desktop/JavaBack/dataXml.xml");
     	  
     	  DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     	 
@@ -30,23 +30,23 @@ public class UserDao {
           BufferedReader br = new BufferedReader(new FileReader("C:/Users/768980/Desktop/JavaBack/dddd.txt"));
           String ss="", str="";
           String ss1 = br.readLine();
-//          System.out.println(ss1);
+          System.out.println(ss1);
           StringBuilder sbr = new StringBuilder();
           while((ss = br.readLine() )!= null){
-        	  sbr.append(ss);
-//        	  System.out.println(ss);
+//        	  sbr.append(ss);
+        	  System.out.println(ss);
           }
           str = sbr.toString();
-//          System.out.println(FileDetails.getContent());
+//          System.out.println(FileDetails.getContent()); 
 //          System.out.println(FileDetails.str.length());
 //          	System.out.println(str);
           //String str= UDPReceiver2.line1;
-          //System.out.println(str);
+          System.out.println(str);
 //          GetDet oo= new GetDet();
-          InputStream is = new ByteArrayInputStream(str.getBytes());
+          InputStream is = new ByteArrayInputStream(ss1.getBytes());
           
 //          Document doc = dBuilder.parse(inputFile);
-          FileInputStream fis = new FileInputStream(str);
+//          FileInputStream fis = new FileInputStream(ss1);
           Document doc = dBuilder.parse(is);
           doc.getDocumentElement().normalize();
           System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
@@ -56,7 +56,7 @@ public class UserDao {
           userList = new ArrayList<Employee>(); 
           
           Db database = new Db();
-//          
+////          
           for (int temp = 1; temp < nList.getLength(); temp++) {
              Node nNode = nList.item(temp);
              
@@ -67,6 +67,7 @@ public class UserDao {
                  String empid = eElement.getAttribute("empid");
                  String res = name + " " + sal + " " + empid;
                  
+//                 System.out.println(empid + " " + name);
                   database.addTodb(empid, name, sal);
                   
    	              Employee emp = new Employee(empid, name, sal); 
@@ -102,8 +103,5 @@ public class UserDao {
          e.printStackTrace(); 
       } 
    }
-  public void sendFile(String stt){
-	  str = stt;
-//	  return str;
-  }
+  
 }

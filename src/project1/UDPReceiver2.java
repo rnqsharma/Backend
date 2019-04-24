@@ -18,7 +18,7 @@ public class UDPReceiver2
 		try
 		{
 			byte data[]= new byte[1024];
-			DatagramSocket ds= new DatagramSocket(1096);
+			DatagramSocket ds= new DatagramSocket(1098);
 			DatagramPacket dp= new DatagramPacket(data,data.length);
 			String line=null;
 			while(true)
